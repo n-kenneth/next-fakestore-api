@@ -1,7 +1,6 @@
 import { GetStaticProps } from "next";
 
 import { getAllProducts } from "../lib/api";
-import useProduct from "../hooks/useProduct";
 
 import Banner from "../components/Banner";
 import ProductRecommendations from "../components/ProductRecommendations";

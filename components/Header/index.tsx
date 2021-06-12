@@ -1,31 +1,27 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { User, ShoppingCart } from "react-feather";
-import { getAllCategories } from "../../lib/api";
+import { User } from "react-feather";
 import useCategory from "../../hooks/useCategory";
 import {
   Container,
   chakra,
+  Box,
   Text,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuIcon,
-  MenuCommand,
-  MenuDivider,
 } from "@chakra-ui/react";
+import Cart from "../Cart";
 
 const Header = () => {
   const router = useRouter();
   const { getCategories } = useCategory();
-  const { isLoading, data, isSuccess } = getCategories();
+  const { data, isSuccess } = getCategories();
 
   const [offset, setOffset] = useState(0);
+
   useEffect(() => {
     window.onscroll = () => {
       setOffset(window.pageYOffset);
@@ -127,7 +123,7 @@ const Header = () => {
               <User />
             </chakra.li>
             <li>
-              <ShoppingCart />
+              <Cart />
             </li>
           </chakra.ul>
         </nav>

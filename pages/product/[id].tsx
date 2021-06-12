@@ -1,7 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { getAllProducts, getProduct, Product } from "../../lib/api";
-import { useRouter } from "next/router";
-
+import useCart from "../../hooks/useCart";
 import {
   Grid,
   GridItem,
@@ -20,7 +19,13 @@ interface Props {
 }
 
 const ProductPage = ({ product }: Props) => {
+  const { saveToCart } = useCart();
+
   if (!product) return <Loading />;
+
+  const handleAddToCart = () => {
+    saveToCart(product);
+  };
 
   return (
     <Container maxW="container.xl" mt="120px">
@@ -57,6 +62,7 @@ const ProductPage = ({ product }: Props) => {
               borderRadius="0"
               px="10"
               py="2"
+              onClick={handleAddToCart}
             >
               Add To Cart
             </Button>

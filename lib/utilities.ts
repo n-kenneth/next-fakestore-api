@@ -1,4 +1,5 @@
 import { Product } from "./api";
+import { CartItem } from "../context/cartContext";
 
 export const filterProducts = (
   sort: string,
@@ -11,4 +12,21 @@ export const filterProducts = (
   } else {
     return products;
   }
+};
+
+export const getTotalPrice = (products: CartItem[]): number => {
+  const totalPrice = products.reduce(
+    (prevValue, currentProduct) =>
+      (prevValue += currentProduct.price * currentProduct.quantity),
+    0
+  );
+  return totalPrice;
+};
+
+export const getTotalQuantity = (products: CartItem[]): number => {
+  const totalQuantity = products.reduce(
+    (prevValue, currentProduct) => (prevValue += currentProduct.quantity),
+    0
+  );
+  return totalQuantity;
 };
