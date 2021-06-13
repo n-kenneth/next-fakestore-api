@@ -3,29 +3,34 @@ import { ShoppingCart, X } from "react-feather";
 import {
   Box,
   Text,
+  Button,
   Drawer,
   DrawerBody,
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
 import CartItem from "../CartItem";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getTotalPrice } from "../../lib/utilities";
 
 const Cart = () => {
-  const { cart } = useCart();
+  const { cart, openCart, setOpenCart, removeFromCart, updateQuantity } =
+    useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
-    if (cart.itemTotal !== 0) {
-      console.log(cart);
+    if (openCart) {
       onOpen();
     }
-  }, [cart]);
+  }, [openCart]);
+
+  const handleClose = () => {
+    setOpenCart(false);
+    onClose();
+  };
 
   return (
     <>
@@ -49,11 +54,11 @@ const Cart = () => {
           </Box>
         )}
       </Box>
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="sm">
+      <Drawer isOpen={isOpen} placement="right" onClose={handleClose} size="sm">
         <DrawerOverlay />
         <DrawerContent>
           <Box
-            onClick={onClose}
+            onClick={handleClose}
             cursor="pointer"
             position="absolute"
             right="15px"
@@ -63,12 +68,39 @@ const Cart = () => {
           </Box>
           <DrawerHeader>Your Cart</DrawerHeader>
           <DrawerBody>
-            {cart.items.length &&
-              cart.items.map((product) => <CartItem product={product} />)}
+            {cart.items.length
+              ? cart.items.map((product) => (
+                  <CartItem
+                    product={product}
+                    removeProduct={removeFromCart}
+                    updateQuantity={updateQuantity}
+                    key={product.title + product.id}
+                  />
+                ))
+              : null}
           </DrawerBody>
 
-          <DrawerFooter>
-            <Text>Total: ${getTotalPrice(cart.items)}</Text>
+          <DrawerFooter
+            justifyContent="flex-start"
+            flexDirection="column"
+            alignItems="flex-start"
+            w="100%"
+          >
+            <Button
+              display="block"
+              w="100%"
+              borderRadius="0"
+              background="#000"
+              color="#fff"
+              fontSize="xl"
+              fontWeight="bold"
+              h="50px"
+            >
+              Checkout{" "}
+              {getTotalPrice(cart.items)
+                ? `$${getTotalPrice(cart.items).toFixed(2)}`
+                : null}
+            </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

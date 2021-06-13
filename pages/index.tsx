@@ -4,6 +4,7 @@ import { getAllProducts } from "../lib/api";
 
 import Banner from "../components/Banner";
 import ProductRecommendations from "../components/ProductRecommendations";
+import PageHead from "../components/Head";
 
 const Home = ({ products }) => {
   const bannerConfig = [
@@ -21,6 +22,11 @@ const Home = ({ products }) => {
 
   return (
     <>
+      <PageHead
+        title="TheLOGO | Home"
+        description="Your one stop online shop"
+        keywords="online, ecommorce, shop"
+      />
       <Banner bannerConfig={bannerConfig} />
       <ProductRecommendations header="Top Sellers" />
     </>

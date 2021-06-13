@@ -12,12 +12,14 @@ import Loading from "../../components/Spinner";
 import ProductCard from "../../components/ProductCard";
 import Filter from "../../components/Filter";
 import { filterProducts } from "../../lib/utilities";
+import PageHead from "../../components/Head";
 
 interface Props {
   products: Product[];
+  category: string;
 }
 
-const Category = ({ products }: Props) => {
+const Category = ({ products, category }: Props) => {
   const [categoryProducts, setCategoryProducts] = useState<Product[]>(products);
   const [sort, setSort] = useState("");
 
@@ -38,6 +40,11 @@ const Category = ({ products }: Props) => {
 
   return (
     <Container maxW="container.xl" mt="165px">
+      <PageHead
+        title={category}
+        description={`${category} category page`}
+        keywords={category}
+      />
       <Grid templateColumns="1fr 4fr" gap="10">
         <GridItem>
           <Filter
@@ -89,6 +96,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       products,
+      category,
     },
   };
 };

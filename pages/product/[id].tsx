@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import ProductRecommendations from "../../components/ProductRecommendations";
 import Loading from "../../components/Spinner";
+import PageHead from "../../components/Head";
 
 interface Props {
   product: Product;
@@ -29,6 +30,11 @@ const ProductPage = ({ product }: Props) => {
 
   return (
     <Container maxW="container.xl" mt="120px">
+      <PageHead
+        title={product.title}
+        description={product.description}
+        keywords={product.category}
+      />
       <Grid templateColumns="1fr 1fr">
         <GridItem>
           <Box maxW="480px">

@@ -104,7 +104,7 @@ const Header = () => {
                 <MenuList>
                   {isSuccess &&
                     categoryLinks.map((category) => (
-                      <Link href={category.url}>
+                      <Link href={category.url} key={category.url}>
                         <a>
                           <MenuItem textTransform="capitalize" color="#000">
                             {category.name}
