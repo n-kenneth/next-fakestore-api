@@ -1,6 +1,6 @@
 import { Radio, RadioGroup, Text, Stack } from "@chakra-ui/react";
-import { Product } from "../../lib/api";
-import { filterProducts } from "../../lib/utilities";
+import { Product } from "@/lib/api";
+import { filterProducts } from "@/lib/utilities";
 
 interface Props {
   products: Product[];

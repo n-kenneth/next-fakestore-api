@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getAllCategories } from "../lib/api";
+import { getAllCategories } from "@/lib/api";
 
 const useCategory = () => {
   const getCategories = () => {

@@ -1,19 +1,19 @@
 import { GetStaticProps, GetStaticPaths } from "next";
-import { getAllProducts, getProduct, Product } from "../../lib/api";
-import useCart from "../../hooks/useCart";
+import Image from "next/image";
+import { getAllProducts, getProduct, Product } from "@/lib/api";
+import useCart from "@/hooks/useCart";
 import {
   Grid,
   GridItem,
   Container,
   Box,
-  Image,
   Text,
   Badge,
   Button,
 } from "@chakra-ui/react";
-import ProductRecommendations from "../../components/ProductRecommendations";
-import Loading from "../../components/Spinner";
-import PageHead from "../../components/Head";
+import ProductRecommendations from "@/components/ProductRecommendations";
+import Loading from "@/components/Spinner";
+import PageHead from "@/components/Head";
 
 interface Props {
   product: Product;
@@ -37,8 +37,15 @@ const ProductPage = ({ product }: Props) => {
       />
       <Grid templateColumns="1fr 1fr">
         <GridItem>
-          <Box maxW="480px">
-            <Image src={product.image} m="auto" fit="contain" />
+          <Box
+            maxW="480px"
+            height="640px"
+            pos="relative"
+            textAlign="center"
+            display="flex"
+            margin="auto"
+          >
+            <Image src={product.image} layout="fill" objectFit="contain" />
           </Box>
         </GridItem>
         <GridItem>

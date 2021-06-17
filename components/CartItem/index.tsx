@@ -9,7 +9,7 @@ import {
   Flex,
   Spacer,
 } from "@chakra-ui/react";
-import { CartItem } from "../../context/cartContext";
+import { CartItem } from "@/context/cartContext";
 import { Plus, Minus, X } from "react-feather";
 
 interface Props {

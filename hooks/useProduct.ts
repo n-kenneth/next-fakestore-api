@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { Product, getAllProducts } from "../lib/api";
+import { Product, getAllProducts } from "@/lib/api";
 
 const useProduct = () => {
   const getProducts = (limit: number) => {

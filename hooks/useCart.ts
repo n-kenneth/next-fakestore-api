@@ -1,8 +1,7 @@
-import { useDisclosure } from "@chakra-ui/react";
-import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../context/cartContext";
-import { Product } from "../lib/api";
-import { getTotalPrice, getTotalQuantity } from "../lib/utilities";
+import { useContext } from "react";
+import { CartContext } from "@/context/cartContext";
+import { Product } from "@/lib/api";
+import { getTotalPrice, getTotalQuantity } from "@/lib/utilities";
 
 const useCart = () => {
   const { cart, setCart, openCart, setOpenCart } = useContext(CartContext);

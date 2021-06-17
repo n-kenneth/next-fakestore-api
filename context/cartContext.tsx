@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { Product } from "../lib/api";
+import { Product } from "@/lib/api";
 
 export interface CartItem extends Product {
   quantity: number;

@@ -1,10 +1,10 @@
 import { GetStaticProps } from "next";
 
-import { getAllProducts } from "../lib/api";
+import { getAllProducts } from "@/lib/api";
 
-import Banner from "../components/Banner";
-import ProductRecommendations from "../components/ProductRecommendations";
-import PageHead from "../components/Head";
+import Banner from "@/components/Banner";
+import ProductRecommendations from "@/components/ProductRecommendations";
+import PageHead from "@/components/Head";
 
 const Home = ({ products }) => {
   const bannerConfig = [

@@ -1,7 +1,7 @@
 import { Grid, Text, Container } from "@chakra-ui/react";
-import useProduct from "../../hooks/useProduct";
-import ProductCardSkeleton from "../ProductCardSkeleton/ProductCardSkeleton";
-import ProductCard from "../ProductCard";
+import useProduct from "@/hooks/useProduct";
+import ProductCardSkeleton from "@/components/ProductCardSkeleton";
+import ProductCard from "@/components/ProductCard";
 import React from "react";
 
 interface Props {

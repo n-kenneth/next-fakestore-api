@@ -2,17 +2,13 @@ import { useState, useEffect } from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Container, Grid, GridItem } from "@chakra-ui/react";
 
-import {
-  getAllCategories,
-  getProductsInCategory,
-  Product,
-} from "../../lib/api";
+import { getAllCategories, getProductsInCategory, Product } from "@/lib/api";
 
-import Loading from "../../components/Spinner";
-import ProductCard from "../../components/ProductCard";
-import Filter from "../../components/Filter";
-import { filterProducts } from "../../lib/utilities";
-import PageHead from "../../components/Head";
+import Loading from "@/components/Spinner";
+import ProductCard from "@/components/ProductCard";
+import Filter from "@/components/Filter";
+import { filterProducts } from "@/lib/utilities";
+import PageHead from "@/components/Head";
 
 interface Props {
   products: Product[];

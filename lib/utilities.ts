@@ -1,5 +1,5 @@
-import { Product } from "./api";
-import { CartItem } from "../context/cartContext";
+import { Product } from "@/lib/api";
+import { CartItem } from "@/context/cartContext";
 
 export const filterProducts = (
   sort: string,

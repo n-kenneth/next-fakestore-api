@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { User } from "react-feather";
-import useCategory from "../../hooks/useCategory";
+import useCategory from "@/hooks/useCategory";
 import {
   Container,
   chakra,
@@ -13,7 +13,7 @@ import {
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
-import Cart from "../Cart";
+import Cart from "@/components/Cart";
 
 const Header = () => {
   const router = useRouter();

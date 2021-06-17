@@ -1,4 +1,4 @@
-import useCart from "../../hooks/useCart";
+import useCart from "@/hooks/useCart";
 import { ShoppingCart, X } from "react-feather";
 import {
   Box,
@@ -12,9 +12,9 @@ import {
   DrawerContent,
   useDisclosure,
 } from "@chakra-ui/react";
-import CartItem from "../CartItem";
+import CartItem from "@/components/CartItem";
 import { useEffect } from "react";
-import { getTotalPrice } from "../../lib/utilities";
+import { getTotalPrice } from "@/lib/utilities";
 
 const Cart = () => {
   const { cart, openCart, setOpenCart, removeFromCart, updateQuantity } =
